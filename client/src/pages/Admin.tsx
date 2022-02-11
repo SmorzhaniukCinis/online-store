@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Auth = () => {
+export const Admin = () => {
     return (
         <div>
-            auth
+            shop
         </div>
     );
 };

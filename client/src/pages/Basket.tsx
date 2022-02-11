@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Auth = () => {
+export const Basket = () => {
     return (
         <div>
-            auth
+            shop
         </div>
     );
 };
