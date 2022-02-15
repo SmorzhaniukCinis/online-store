@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
 import {authRoutes, PublicRoutes} from "../routes";
 import {SHOP_ROUTE} from "../utils/constants";
+import {Context} from "../index";
 
 export const AppRouter = () => {
-    const isAuth = false
+    const User = useContext(Context)
+    console.log(User)
     return (
         <Routes>
-            {isAuth && authRoutes.map(({path, Component})=>
+            {User.isAuth && authRoutes.map(({path, Component})=>
                 <Route path={path} key={path} element={<Component/>}/>
             )}
             {PublicRoutes.map(({path, Component})=>
