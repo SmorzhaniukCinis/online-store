@@ -7,7 +7,6 @@ import {observer} from "mobx-react-lite";
 export const NavBar = observer( () => {
 
     const {user} = useContext(Context)
-    console.log(user.isAuth)
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
