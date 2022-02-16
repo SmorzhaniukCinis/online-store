@@ -5,10 +5,10 @@ import {SHOP_ROUTE} from "../utils/constants";
 import {Context} from "../index";
 
 export const AppRouter = () => {
-    const User = useContext(Context)
+    const {user} = useContext(Context)
     return (
         <Routes>
-            {User.isAuth && authRoutes.map(({path, Component})=>
+            {user.isAuth && authRoutes.map(({path, Component})=>
                 <Route path={path} key={path} element={<Component/>}/>
             )}
             {PublicRoutes.map(({path, Component})=>
