@@ -21,6 +21,7 @@ export default class DeviseStore {
         {id: 6, name: "iPhone 98", price: 23333, rating: 5, img: 'https://avic.ua/assets/cache/products/18806/apple-iphone-7-plus-128gb-black-01-prod_md.jpg'}
     ]
     _selectedType = {}
+    _selectedBrand = {}
     constructor() {
 
         makeAutoObservable(this)
@@ -37,7 +38,9 @@ export default class DeviseStore {
     }
     setSelectedType (deviceType) {
             this._selectedType = deviceType
-        debugger
+    }
+    setSelectedBrand (brand) {
+            this._selectedBrand = brand
     }
 
     get types () {
@@ -51,5 +54,8 @@ export default class DeviseStore {
     }
     get selectedType () {
         return this._selectedType
+    }
+    get selectedBrand () {
+        return this._selectedBrand
     }
 }

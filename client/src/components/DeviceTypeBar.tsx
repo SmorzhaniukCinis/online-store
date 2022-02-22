@@ -6,11 +6,11 @@ import DeviseStore from "../store/DeviseStore";
 
 export const DeviceTypeBar = observer(() => {
     const {devices} = useContext(Context)
-    console.log(DeviseStore)
     return (
         <ListGroup>
             {devices?.types?.map((type: any) =>
                 <ListGroup.Item
+                    style={{cursor: 'pointer'}}
                     onClick={()=>devices.setSelectedType(type)}
                     active={type.id === devices.selectedType.id}
                     key={type.id}
