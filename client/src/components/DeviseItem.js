@@ -9,7 +9,6 @@ import {DEVICE_ROUTE} from "../utils/constants";
 export const DeviseItem = ({device}) => {
 
     let navigate = useNavigate();
-    console.log(navigate)
 
     return (
         <Col md={3} className={'mt-3'} onClick={() => navigate(DEVICE_ROUTE + '/' + device.id)}>

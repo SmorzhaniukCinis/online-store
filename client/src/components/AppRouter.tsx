@@ -16,7 +16,7 @@ export const AppRouter = () => {
             )}
             <Route
                 path="*"
-                element={<Navigate to={SHOP_ROUTE+'/:id'} />}
+                element={<Navigate to={SHOP_ROUTE} />}
             />
         </Routes>
     );
