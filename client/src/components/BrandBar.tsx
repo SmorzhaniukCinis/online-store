@@ -9,7 +9,6 @@ const style = {
 
 export const BrandBar = observer(() => {
     const {devices} = useContext(Context)
-    console.log(devices.brands)
     return (
         <ListGroup style={style} horizontal>
             {devices?.brands?.map((brand: { id: number, name: string }) =>
