@@ -1,13 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Card, Container, Form, Row} from "react-bootstrap";
 import {NavLink, useLocation} from "react-router-dom";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/constants";
+import {login, registration} from "../http/userAPI";
 
 export const Auth = () => {
 
     const location = useLocation()
     const isLoginPath = location.pathname === LOGIN_ROUTE
+    const [email , setEmail] = useState('')
+    const [password , setPassword] = useState('')
 
+    const click = async () => {
+        if(isLoginPath) {
+            const response = await login()
+        } else {
+            const response = await registration(email, password)
+            console.log(response)
+        }
+
+    }
+
+    console.log(email)
     return (
         <Container
             className={'d-flex justify-content-center align-items-center'}
@@ -17,10 +31,15 @@ export const Auth = () => {
                 <h2 className={'m-auto'}>{isLoginPath ? 'Authorization' : 'Registration'}</h2>
                 <Form className={'mt-2 d-flex flex-column'}>
                     <Form.Control
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
                         className={'mt-3'}
                         placeholder={"Enter your email"}
                     />
                     <Form.Control
+                        value={password}
+                        type='password'
+                        onChange={e => setPassword(e.target.value)}
                         className={'mt-3'}
                         placeholder={"Enter your password"}
                     />
@@ -33,7 +52,7 @@ export const Auth = () => {
                                 {isLoginPath ? "Registration" : 'Log in'}
                             </NavLink>
                         </div>
-                        <Button style={{width: 140}} className={'mt-3'}
+                        <Button onClick={click} style={{width: 140}} className={'mt-3'}
                                 variant={'outline-success'}>{isLoginPath ? 'Login' : 'Submit'}</Button>
                     </div>
                 </Form>
